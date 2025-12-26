@@ -6,12 +6,17 @@ import { ProductContext } from "../context/ProductContext.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Loading from "../components/Loading/Loading";
 
 const Home = () => {
   const { product, loading, error } = useContext(ProductContext);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
 
   if (error) {
