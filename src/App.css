@@ -1,0 +1,37 @@
+center{
+  margin-top: 24px !important;
+}
+h2{
+  margin-top: 50px !important;
+}
+.slick-next:before,
+.slick-prev:before{
+  color: gray !important;
+  font-size: 32px !important;
+}
+.header , 
+.footer{
+  min-width: 100%;
+  padding: 0 !important;
+}
+
+.custom-image-set{
+  height: 100px;
+  object-fit: contain;
+}
+/* h5{
+  margin-bottom: 15px !important;
+} */
+.card-title{
+  max-height: 25px;
+  overflow: hidden;
+}
+.card-text{
+  max-height:100px;
+  overflow: hidden;
+  width: 100%;
+;
+}
+.card{
+  padding: 12px 0;
+}
