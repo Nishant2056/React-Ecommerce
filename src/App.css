@@ -14,7 +14,21 @@ h2{
   min-width: 100%;
   padding: 0 !important;
 }
-
+.header{
+  min-height: 72px;
+}
+.header header{
+      position: fixed;
+    min-width: 100%;
+    z-index: 9;
+    background: #ffffff;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.2);
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+.modal.fade.show{
+  z-index: 99;
+}
 .custom-image-set{
   height: 100px;
   object-fit: contain;
