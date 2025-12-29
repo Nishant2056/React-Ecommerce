@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useReducer, useEffect } from "react";
 
 export const ProductContext = createContext({
   product: [],
@@ -6,11 +6,24 @@ export const ProductContext = createContext({
   error: null,
 });
 
-export const ProductProvider = ({ children }) => {
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const initialState = {
+  product: [],
+  loading: true,
+  error: null,
+};
+const productReducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_SUCCESS":
+      return { ...state, product: action.payload, loading: false };
+    case "FETCH_ERROR":
+      return { ...state, error: action.payload, loading: false };
+    default:
+      return state;
+  }
+};
 
+export const ProductProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(productReducer, initialState);
   useEffect(() => {
     const controller = new AbortController();
 
@@ -22,15 +35,15 @@ export const ProductProvider = ({ children }) => {
         // console.log(response);
         const data = await response.json();
         // console.log(data);
-        setProduct(data);
+        dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (error) {
         if (error.name !== "AbortError") {
-          setError(
-            "Something went wrong! Please check your status and try again later"
-          );
+          dispatch({
+            type: "FETCH_ERROR",
+            payload:
+              "Something went wrong! Please check your status and try again later",
+          });
         }
-      } finally {
-        setLoading(false);
       }
     };
     fetchData();
@@ -39,7 +52,7 @@ export const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={{ product, loading, error }}>
+    <ProductContext.Provider value={{ ...state }}>
       {children}
     </ProductContext.Provider>
   );
