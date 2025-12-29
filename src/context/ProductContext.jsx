@@ -21,7 +21,7 @@ export const ProductProvider = ({ children }) => {
         });
         // console.log(response);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setProduct(data);
       } catch (error) {
         if (error.name !== "AbortError") {
