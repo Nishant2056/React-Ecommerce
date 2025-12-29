@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaCartPlus } from "react-icons/fa6";
+import { Link, NavLink } from "react-router-dom";
 import CartModal from "./CartModal.jsx";
 
 const Header = () => {
@@ -8,38 +9,63 @@ const Header = () => {
   return (
     <div className="container header">
       <header className="d-flex flex-wrap justify-content-center p-3 mb-4 border-bottom">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="d-flex align-items-center link-body-emphasis text-decoration-none"
         >
           <span className="fs-4">Nishant Store</span>
-        </a>
+        </Link>
 
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <a href="#" className="nav-link active" aria-current="page">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
               Home
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <NavLink
+              to="/features"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
               Features
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <NavLink
+              to="/pricing"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
               Pricing
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <NavLink
+              to="/faqs"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
               FAQs
-            </a>
+            </NavLink>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
               About
-            </a>
+            </NavLink>
           </li>
         </ul>
         <div
