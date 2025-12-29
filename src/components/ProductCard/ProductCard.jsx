@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Modal from "../Modal/Modal";
+import { CartContext } from "../../context/CartContext";
 
 const ProductCard = ({ product }) => {
   const [showModal, setShowModal] = useState(false);
+  const { addToCart } = useContext(CartContext);
 
   return (
     <>
@@ -19,9 +21,13 @@ const ProductCard = ({ product }) => {
           <p className="card-text text-center">{product.description}</p>
           <p className="card-text text-center">${product.price}</p>
         </div>
-        <a href="#" className="btn btn-primary col-6 m-auto">
+        <button
+          type="button"
+          className="btn btn-primary col-6 m-auto"
+          onClick={() => addToCart(product)}
+        >
           Add to Cart
-        </a>
+        </button>
       </div>
       <Modal
         show={showModal}
