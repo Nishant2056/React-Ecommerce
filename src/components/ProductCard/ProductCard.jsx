@@ -45,11 +45,11 @@ const ProductCard = ({ product }) => {
       {showToast &&
         createPortal(
           <div
-            className="toast show position-fixed top-0 end-0 m-3 mt-4 bg-danger text-white"
+            className="toast show position-fixed end-0 m-3 mt-4 bg-success text-white"
             role="alert"
             aria-live="assertive"
             aria-atomic="true"
-            style={{ zIndex: 1060 }}
+            style={{ zIndex: 1060, top: "60px" }}
           >
             <div className="d-flex">
               <div className="toast-body">Item added to cart!</div>
