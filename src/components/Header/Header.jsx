@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaCartPlus } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
 import CartModal from "./CartModal.jsx";
+import logo from "../../assets/store logo.jpg";
 
 const Header = () => {
   const [showCart, setShowCart] = useState(false);
@@ -13,7 +14,7 @@ const Header = () => {
           to="/"
           className="d-flex align-items-center link-body-emphasis text-decoration-none"
         >
-          <span className="fs-4">Nishant Store</span>
+          <img src={logo} className="store-logo" alt="Store Logo" width="60" />
         </Link>
 
         <ul className="nav nav-pills">
