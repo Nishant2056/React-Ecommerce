@@ -83,3 +83,8 @@ h2{
   font-size: 18px;
   color: #333;
 }
+.store-logo{
+  height: 35px;
+  width: 35px;
+  object-fit: contain;
+}
